@@ -1,9 +1,12 @@
 #include "raylib.h"
+#include "State.h"
 
 int main(){
     const int screenWidth = 1200;
     const int screenHeight = 800;
-    InitWindow(screenWidth, screenHeight, "Fußballspiel Test");
+    InitWindow(screenWidth, screenHeight, "Egg Timer");
+
+    State currentState = State::Startscreen;
 
     
 
