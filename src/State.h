@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "Visuals.h"
 
 enum class State{
     Startscreen,
@@ -7,4 +8,5 @@ enum class State{
 
 };
 void UpdateStartscreen(State& currentState);
-void DrawStartscreen();
+void DrawStartscreen(const Visuals& visuals);
+void DrawChoicescreen();
