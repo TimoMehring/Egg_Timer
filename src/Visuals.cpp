@@ -5,6 +5,7 @@ Visuals LoadVisuals()
     Visuals visuals;
 
     visuals.egg = LoadTexture("assets/egg.png");
+    visuals.egg_spritesheet = LoadTexture("assets/egg_spritesheet.png");
     visuals.egg_soft_boiled = LoadTexture("assets/egg_soft.png");
     visuals.egg_hard_boiled = LoadTexture("assets/egg_hard.png");
     visuals.arrow = LoadTexture("assets/arrow.png");

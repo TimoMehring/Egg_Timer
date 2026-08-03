@@ -10,6 +10,11 @@ int main(){
     State currentState = State::Startscreen;
 
     Visuals visuals = LoadVisuals();
+
+    int eggCurrentFrame = 0;
+    const int eggFrameCount = 3;
+    float eggFrameTimer = 0.0f;
+    const float eggFrameDuration = 0.25f;
     
     // Terminal Debug Ausgabe für Ei Sprite
     TraceLog(LOG_INFO, "Egg width: %d", visuals.egg.width);
@@ -19,10 +24,19 @@ int main(){
     
 
     while(!WindowShouldClose()){
+        eggFrameTimer += GetFrameTime();
+        if(eggFrameTimer >= eggFrameDuration){
+            eggFrameTimer = 0.0f;
+            eggCurrentFrame++;
+
+            if(eggCurrentFrame >= 4){ // >= eggFrameCount
+                eggCurrentFrame = 0;
+            }
+        }
         BeginDrawing();
         ClearBackground(BROWN);
         if(currentState == State::Startscreen){
-            DrawStartscreen(visuals);
+            DrawStartscreen(visuals,eggCurrentFrame);
         }
 
 
