@@ -6,3 +6,5 @@ enum class State{
     Choicescreen,
 
 };
+void UpdateStartscreen(State& currentState);
+void DrawStartscreen();

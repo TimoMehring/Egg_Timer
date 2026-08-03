@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "State.h"
+#include "Visuals.h"
 
 int main(){
     const int screenWidth = 1200;
@@ -8,14 +9,25 @@ int main(){
 
     State currentState = State::Startscreen;
 
+    Visuals visuals = LoadVisuals();
+
     
 
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(BROWN);
+        if(currentState == State::Startscreen){
+            DrawStartscreen();
+        }
+
+
+
+        //BeginDrawing();
+        //ClearBackground(BROWN);
         EndDrawing();
 
     }
+    UnloadVisuals(visuals);
     CloseWindow();
     return 0;
     
