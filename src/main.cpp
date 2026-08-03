@@ -29,14 +29,21 @@ int main(){
             eggFrameTimer = 0.0f;
             eggCurrentFrame++;
 
-            if(eggCurrentFrame >= 4){ // >= eggFrameCount
+            if(eggCurrentFrame >= 4){ // >= eggFrameCount, Spritesheet(3Frames)
                 eggCurrentFrame = 0;
             }
         }
+        
+        if(currentState == State::Startscreen){
+            UpdateStartscreen(currentState);
+        }
+
         BeginDrawing();
         ClearBackground(BROWN);
         if(currentState == State::Startscreen){
             DrawStartscreen(visuals,eggCurrentFrame);
+        }else if(currentState == State::Choicescreen){
+            DrawChoiceScreen(); // Unfinished
         }
 
 

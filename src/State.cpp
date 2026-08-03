@@ -43,5 +43,7 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
 }
 
 void DrawChoiceScreen(){
+    ClearBackground(DARKBLUE);
+    DrawText("CHOICE SCREEN", 250, 300, 40, WHITE);
 
 };
