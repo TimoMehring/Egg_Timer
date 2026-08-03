@@ -42,7 +42,7 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
     DrawTexturePro(visuals.egg_spritesheet, source, destination, Vector2{0.0f, 0.0f}, 0.0f, WHITE);
 }
 
-void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame){
+void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition arrowPosition){
     ClearBackground(DARKBLUE);
 
     
@@ -59,10 +59,30 @@ void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame){
 
     };
 
+    // Anpassungen wegen Pfeil Soft or Boiled
+    float arrowX = 200.0f;
+    float arrowY = 350.0f;
+
+    if(arrowPosition == ArrowPosition::HardBoiled){
+        arrowX = 200.0f;
+        arrowY = 350.0f;
+    }else if(arrowPosition == ArrowPosition::SoftBoiled){
+        arrowX = 500.0f;
+        arrowY = 350.0f;
+    }
+
     Rectangle destination = {
-        500.0f, 400.0f, frameWidth_Arrow * scale, frameHeight_Arrow * scale
+        arrowX, arrowY, frameWidth_Arrow * scale, frameHeight_Arrow * scale
     };
 
     DrawTexturePro(visuals.arrow, source, destination, Vector2{0.0f, 0.0f}, 0.0f, WHITE);
 
+};
+
+void UpdateChoicescreen(State& currentState, ArrowPosition& arrowPosition){
+    if(IsKeyPressed(KEY_LEFT)){
+        arrowPosition = ArrowPosition::HardBoiled;
+    }else if(IsKeyPressed(KEY_RIGHT)){
+        arrowPosition = ArrowPosition::SoftBoiled;
+    }
 };

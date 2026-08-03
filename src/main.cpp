@@ -8,8 +8,10 @@ int main(){
     InitWindow(screenWidth, screenHeight, "Egg Timer");
 
     State currentState = State::Startscreen;
+    ArrowPosition arrowPosition = ArrowPosition::HardBoiled;
 
     Visuals visuals = LoadVisuals();
+
 
     int eggCurrentFrame = 0;
     const int eggFrameCount = 3;
@@ -52,6 +54,8 @@ int main(){
         
         if(currentState == State::Startscreen){
             UpdateStartscreen(currentState);
+        }else if(currentState == State::Choicescreen){
+            UpdateChoicescreen(currentState, arrowPosition);
         }
 
         BeginDrawing();
@@ -59,7 +63,7 @@ int main(){
         if(currentState == State::Startscreen){
             DrawStartscreen(visuals,eggCurrentFrame);
         }else if(currentState == State::Choicescreen){
-            DrawChoiceScreen(visuals, arrowCurrentFrame); 
+            DrawChoiceScreen(visuals, arrowCurrentFrame, arrowPosition); 
         }
 
 

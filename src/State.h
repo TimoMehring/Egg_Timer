@@ -2,11 +2,17 @@
 #include "raylib.h"
 #include "Visuals.h"
 
+enum class ArrowPosition{
+    HardBoiled,
+    SoftBoiled,
+};
+
 enum class State{
     Startscreen,
     Choicescreen,
 
 };
 void UpdateStartscreen(State& currentState);
+void UpdateChoicescreen(State& currentState, ArrowPosition& arrowPosition);
 void DrawStartscreen(const Visuals& visuals,int eggCurrentFrame);
-void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame);
+void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition arrowPosition);
