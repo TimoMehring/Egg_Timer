@@ -9,4 +9,4 @@ enum class State{
 };
 void UpdateStartscreen(State& currentState);
 void DrawStartscreen(const Visuals& visuals,int eggCurrentFrame);
-void DrawChoiceScreen();
+void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame);

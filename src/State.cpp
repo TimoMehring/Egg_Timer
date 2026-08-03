@@ -42,8 +42,27 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
     DrawTexturePro(visuals.egg_spritesheet, source, destination, Vector2{0.0f, 0.0f}, 0.0f, WHITE);
 }
 
-void DrawChoiceScreen(){
+void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame){
     ClearBackground(DARKBLUE);
+
+    
     DrawText("CHOICE SCREEN", 250, 300, 40, WHITE);
+    DrawTextureEx(visuals.egg_hard_boiled, Vector2 {200.0f, 500.0f}, 0.0, 10.0f, WHITE);
+    DrawTextureEx(visuals.egg_soft_boiled, Vector2 {400.0f, 500.0f}, 0.0f, 10.0f, WHITE);
+
+    // Arrow Attachments
+    const float frameWidth_Arrow = 13.0f;
+    const float frameHeight_Arrow = 18.0f;
+    const float scale = 10.0f;
+
+    Rectangle source = {arrowCurrentFrame * frameWidth_Arrow, 0.0f, frameWidth_Arrow, frameHeight_Arrow
+
+    };
+
+    Rectangle destination = {
+        500.0f, 400.0f, frameWidth_Arrow * scale, frameHeight_Arrow * scale
+    };
+
+    DrawTexturePro(visuals.arrow, source, destination, Vector2{0.0f, 0.0f}, 0.0f, WHITE);
 
 };

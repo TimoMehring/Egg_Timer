@@ -15,6 +15,13 @@ int main(){
     const int eggFrameCount = 3;
     float eggFrameTimer = 0.0f;
     const float eggFrameDuration = 0.25f;
+
+    // Arrow Animation
+    int arrowCurrentFrame = 0;
+    const int arrowFrameCount = 3;
+    float arrowFrameTimer = 0.0f;
+    const float arrowFrameDuration = 0.25f;
+
     
     // Terminal Debug Ausgabe für Ei Sprite
     TraceLog(LOG_INFO, "Egg width: %d", visuals.egg.width);
@@ -33,6 +40,15 @@ int main(){
                 eggCurrentFrame = 0;
             }
         }
+
+        arrowFrameTimer += GetFrameTime();
+        if(arrowFrameTimer >= arrowFrameDuration){
+            arrowFrameTimer = 0.0f;
+            arrowCurrentFrame++;
+            if(arrowCurrentFrame >= arrowFrameCount){
+                arrowCurrentFrame = 0;
+            }
+        }
         
         if(currentState == State::Startscreen){
             UpdateStartscreen(currentState);
@@ -43,7 +59,7 @@ int main(){
         if(currentState == State::Startscreen){
             DrawStartscreen(visuals,eggCurrentFrame);
         }else if(currentState == State::Choicescreen){
-            DrawChoiceScreen(); // Unfinished
+            DrawChoiceScreen(visuals, arrowCurrentFrame); 
         }
 
 
