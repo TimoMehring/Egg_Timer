@@ -64,11 +64,11 @@ void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition
     float arrowY = 350.0f;
 
     if(arrowPosition == ArrowPosition::HardBoiled){
-        arrowX = 200.0f;
-        arrowY = 350.0f;
+        arrowX = 210.0f;
+        arrowY = 310.0f;
     }else if(arrowPosition == ArrowPosition::SoftBoiled){
-        arrowX = 500.0f;
-        arrowY = 350.0f;
+        arrowX = 410.0f;
+        arrowY = 310.0f;
     }
 
     Rectangle destination = {
