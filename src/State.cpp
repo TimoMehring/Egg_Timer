@@ -113,5 +113,6 @@ void DrawTimerscreen(float elapsedTime, bool stopwatchRunning){
     DrawText(TextFormat("%02d:%02d:%03d", minutes, seconds, milliseconds), 135, 250, 60, BLACK);
     DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,350,30,BLACK);
     DrawText("R: Reset", 210, 400, 30, BLACK);
+    DrawText("H: Home Button", 20, 550, 20, BLACK);
     
 }

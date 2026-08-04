@@ -55,6 +55,9 @@ int main(){
             UpdateChoicescreen(currentState, arrowPosition);
         }else if (currentState == State::Timerscreen){
             UpdateTimerscreen(elapsedTime, stopwatchRunning);
+            if(IsKeyPressed(KEY_H)){
+                currentState = State::Startscreen;
+            }
         }
 
         BeginDrawing();
