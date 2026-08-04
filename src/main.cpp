@@ -24,6 +24,9 @@ int main(){
     const int arrowFrameCount = 3;
     float arrowFrameTimer = 0.0f;
     const float arrowFrameDuration = 0.25f;
+
+    float elapsedTime = 0.0f;
+    bool stopwatchRunning = false;
     
 
     while(!WindowShouldClose()){
@@ -50,6 +53,8 @@ int main(){
             UpdateStartscreen(currentState);
         }else if(currentState == State::Choicescreen){
             UpdateChoicescreen(currentState, arrowPosition);
+        }else if (currentState == State::Timerscreen){
+            UpdateTimerscreen(elapsedTime, stopwatchRunning);
         }
 
         BeginDrawing();
@@ -59,6 +64,8 @@ int main(){
             DrawStartscreen(visuals,eggCurrentFrame);
         }else if(currentState == State::Choicescreen){
             DrawChoiceScreen(visuals, arrowCurrentFrame, arrowPosition); 
+        }else if (currentState == State::Timerscreen){
+            DrawTimerscreen(elapsedTime, stopwatchRunning);
         }
 
 
