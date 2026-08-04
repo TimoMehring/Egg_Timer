@@ -110,8 +110,8 @@ void DrawTimerscreen(float elapsedTime, bool stopwatchRunning){
     int seconds = static_cast<int>(elapsedTime) % 60;
     int milliseconds =  static_cast<int>((elapsedTime - static_cast<int>(elapsedTime)) * 1000);
 
-    DrawText(TextFormat("%02d:%02d:%03d", minutes, seconds, milliseconds), 100, 250, 60, WHITE);
-    DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",160,350,25,LIGHTGRAY);
-    DrawText("R: Reset", 210, 400, 25, LIGHTGRAY);
+    DrawText(TextFormat("%02d:%02d:%03d", minutes, seconds, milliseconds), 135, 250, 60, BLACK);
+    DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,350,30,BLACK);
+    DrawText("R: Reset", 210, 400, 30, BLACK);
     
 }
