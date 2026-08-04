@@ -13,9 +13,8 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
 {
     ClearBackground(DARKBLUE);
 
-    DrawText("EGG TIMER", 300, 150, 50, WHITE);
-    DrawText("ENTER zum Starten", 310, 300, 25, LIGHTGRAY);
-    DrawTextureEx(visuals.egg, Vector2{500.0f, 400.0f}, 0.0f, 10.0f, WHITE );
+    DrawText("EGG TIMER", 130, 150, 50, BLACK);
+    DrawText("Press Enter to start", 140, 220, 25, BLACK);
 
     // Egg_Spritesheet_Animation
     const float frameWidth_Egg_Spritesheet = 11.0f;
@@ -26,7 +25,7 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
     const float eggWidth = frameWidth_Egg_Spritesheet * scale;
     const float eggHeight = frameHeight_Egg_Spritesheet * scale;
     
-    const float eggX = (800.0f - eggWidth) / 2.0f;
+    const float eggX = (550.0f - eggWidth) / 2.0f;
     const float eggY = (800.0f - eggHeight) / 2.0f;
 
 

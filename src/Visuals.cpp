@@ -4,7 +4,6 @@ Visuals LoadVisuals()
 {
     Visuals visuals;
     visuals.wallpaper = LoadTexture("assets/wallpaper.png");
-    visuals.egg = LoadTexture("assets/egg.png");
     visuals.egg_spritesheet = LoadTexture("assets/egg_spritesheet.png");
     visuals.egg_soft_boiled = LoadTexture("assets/egg_soft.png");
     visuals.egg_hard_boiled = LoadTexture("assets/egg_hard.png");
@@ -15,7 +14,6 @@ Visuals LoadVisuals()
 
 void UnloadVisuals(Visuals& visuals)
 {
-    UnloadTexture(visuals.egg);
     UnloadTexture(visuals.egg_soft_boiled);
     UnloadTexture(visuals.egg_hard_boiled);
     UnloadTexture(visuals.arrow);

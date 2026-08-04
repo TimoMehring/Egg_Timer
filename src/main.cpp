@@ -25,12 +25,6 @@ int main(){
     float arrowFrameTimer = 0.0f;
     const float arrowFrameDuration = 0.25f;
     
-    // Terminal Debug Ausgabe für Ei Sprite
-/*     TraceLog(LOG_INFO, "Egg width: %d", visuals.egg.width);
-    TraceLog(LOG_INFO, "Egg height: %d", visuals.egg.height);
-    TraceLog(LOG_INFO, "Egg id: %u", visuals.egg.id); */
-
-    
 
     while(!WindowShouldClose()){
         eggFrameTimer += GetFrameTime();
@@ -38,7 +32,7 @@ int main(){
             eggFrameTimer = 0.0f;
             eggCurrentFrame++;
 
-            if(eggCurrentFrame >= eggFrameCount){ // >= eggFrameCount, Spritesheet(3Frames)
+            if(eggCurrentFrame >= eggFrameCount){ 
                 eggCurrentFrame = 0;
             }
         }
