@@ -56,6 +56,8 @@ int main(){
         }else if (currentState == State::Timerscreen){
             UpdateTimerscreen(elapsedTime, stopwatchRunning);
             if(IsKeyPressed(KEY_H)){
+                elapsedTime = 0.0f;
+                stopwatchRunning = false;
                 currentState = State::Startscreen;
             }
         }
