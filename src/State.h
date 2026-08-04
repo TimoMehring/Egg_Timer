@@ -13,6 +13,6 @@ enum class State{
 
 };
 void UpdateStartscreen(State& currentState);
-void UpdateChoicescreen(State& currentState, ArrowPosition& arrowPosition);
+void UpdateChoicescreen(State& currentState, ArrowPosition& arrowPosition,SwitchAnimation& status,int& switchAnimationCurrentFrame,float& switchAnimationFrameTimer);
 void DrawStartscreen(const Visuals& visuals,int eggCurrentFrame);
 void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition arrowPosition);
