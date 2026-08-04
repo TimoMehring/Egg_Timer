@@ -68,7 +68,7 @@ int main(){
         }else if(currentState == State::Choicescreen){
             DrawChoiceScreen(visuals, arrowCurrentFrame, arrowPosition); 
         }else if (currentState == State::Timerscreen){
-            DrawTimerscreen(elapsedTime, stopwatchRunning);
+            DrawTimerscreen(visuals, arrowPosition,elapsedTime, stopwatchRunning);
         }
 
 

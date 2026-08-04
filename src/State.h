@@ -18,4 +18,4 @@ void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition);
 void UpdateTimerscreen(float& elapsedTime, bool& stopwatchRunning);
 void DrawStartscreen(const Visuals& visuals,int eggCurrentFrame);
 void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition arrowPosition);
-void DrawTimerscreen(float elipsedTime, bool stopatchrunning);
+void DrawTimerscreen(const Visuals& visuals,ArrowPosition arrowPosition, float elapsedTime, bool stopwatchRunning);

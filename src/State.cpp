@@ -104,7 +104,7 @@ void UpdateTimerscreen(float& elapsedTime, bool& stopwatchRunning){
 }
 
 
-void DrawTimerscreen(float elapsedTime, bool stopwatchRunning){
+void DrawTimerscreen(const Visuals& visuals,ArrowPosition arrowPosition, float elapsedTime, bool stopwatchRunning){
     ClearBackground(DARKBLUE);
     int minutes = static_cast<int>(elapsedTime) / 60;
     int seconds = static_cast<int>(elapsedTime) % 60;
@@ -114,5 +114,10 @@ void DrawTimerscreen(float elapsedTime, bool stopwatchRunning){
     DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,350,30,BLACK);
     DrawText("R: Reset", 210, 400, 30, BLACK);
     DrawText("H: Home Button", 20, 550, 20, BLACK);
+    if(arrowPosition == ArrowPosition::HardBoiled){
+        DrawTextureEx(visuals.egg_hard_boiled, Vector2 {100.0f, 350.0f}, 0.0, 10.0f, WHITE);
+    }else if(arrowPosition == ArrowPosition::SoftBoiled){
+        DrawTextureEx(visuals.egg_soft_boiled, Vector2 {300.0f, 350.0f}, 0.0f, 10.0f, WHITE);
+    }
     
 }
