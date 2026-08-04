@@ -45,8 +45,6 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
 void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition arrowPosition){
     ClearBackground(DARKBLUE);
 
-    
-    DrawText("CHOICE SCREEN", 250, 300, 40, WHITE);
     DrawTextureEx(visuals.egg_hard_boiled, Vector2 {100.0f, 350.0f}, 0.0, 10.0f, WHITE);
     //DrawText("Hard-Boiled",80.0f, 540.0f, 30, BLACK);
     DrawTextureEx(visuals.egg_soft_boiled, Vector2 {300.0f, 350.0f}, 0.0f, 10.0f, WHITE);
@@ -67,11 +65,11 @@ void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition
     if(arrowPosition == ArrowPosition::HardBoiled){
         arrowX = 110.0f;
         arrowY = 160.0f;
-        DrawText("Hard-Boiled",80.0f, 540.0f, 30, BLACK);
+        DrawText("Hard-Boiled",100.0f, 540.0f, 30, BLACK);
     }else if(arrowPosition == ArrowPosition::SoftBoiled){
         arrowX = 310.0f;
         arrowY = 160.0f;
-        DrawText("Soft-Boiled",160.0f, 540.0f, 30, BLACK);
+        DrawText("Soft-Boiled",300.0f, 540.0f, 30, BLACK);
     }
 
     Rectangle destination = {
@@ -80,24 +78,13 @@ void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition
 
     DrawTexturePro(visuals.arrow, source, destination, Vector2{0.0f, 0.0f}, 0.0f, WHITE);
 
-};
+}
 
-void UpdateChoicescreen(State& currentState, ArrowPosition& arrowPosition,SwitchAnimation& status,int& switchAnimationCurrentFrame,float& switchAnimationFrameTimer){
-    if (IsKeyPressed(KEY_RIGHT) && arrowPosition == ArrowPosition::HardBoiled){
-         arrowPosition = ArrowPosition::SoftBoiled;
-
-         status = SwitchAnimation::LeftToRight;
-         switchAnimationCurrentFrame = 0;
-         switchAnimationFrameTimer = 0.0f;
-    }else if(IsKeyPressed(KEY_LEFT) && arrowPosition == ArrowPosition::SoftBoiled){
+void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition){
+    if (IsKeyPressed(KEY_LEFT)){
         arrowPosition = ArrowPosition::HardBoiled;
-        status = SwitchAnimation::RightToLeft;
-        switchAnimationCurrentFrame = 0;
-        switchAnimationFrameTimer = 0.0f;
-    }
-/*     if(IsKeyPressed(KEY_LEFT)){
-        arrowPosition = ArrowPosition::HardBoiled;
-    }else if(IsKeyPressed(KEY_RIGHT)){
+    }else if (IsKeyPressed(KEY_RIGHT)){
         arrowPosition = ArrowPosition::SoftBoiled;
-    } */
-};
+    }
+}
+    

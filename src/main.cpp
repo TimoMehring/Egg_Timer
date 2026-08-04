@@ -10,7 +10,6 @@ int main(){
 
     State currentState = State::Startscreen;
     ArrowPosition arrowPosition = ArrowPosition::HardBoiled;
-    SwitchAnimation status = SwitchAnimation::None;
 
     Visuals visuals = LoadVisuals();
 
@@ -25,18 +24,11 @@ int main(){
     const int arrowFrameCount = 3;
     float arrowFrameTimer = 0.0f;
     const float arrowFrameDuration = 0.25f;
-
-    // SwitchAnimation
-    int switchAnimationCurrentFrame = 0;
-    const int switchAnimationFrameCount = 16;
-    float switchAnimationFrameTimer = 0.0f;
-    const float switchAnimationFrameDuration = 0.1f;
-
     
     // Terminal Debug Ausgabe für Ei Sprite
-    TraceLog(LOG_INFO, "Egg width: %d", visuals.egg.width);
+/*     TraceLog(LOG_INFO, "Egg width: %d", visuals.egg.width);
     TraceLog(LOG_INFO, "Egg height: %d", visuals.egg.height);
-    TraceLog(LOG_INFO, "Egg id: %u", visuals.egg.id);
+    TraceLog(LOG_INFO, "Egg id: %u", visuals.egg.id); */
 
     
 
@@ -59,34 +51,11 @@ int main(){
                 arrowCurrentFrame = 0;
             }
         }
-
-/*         switchAnimationFrameTimer += GetFrameTime();
-        if(switchAnimationFrameTimer >= switchAnimationFrameDuration){
-            switchAnimationFrameTimer = 0.0f;
-            switchAnimationCurrentFrame++;
-            if(switchAnimationCurrentFrame >= switchAnimationFrameCount){
-                switchAnimationCurrentFrame = 0;
-            }
-        }
- */
-
-        if(status != SwitchAnimation::None){
-            switchAnimationFrameTimer += GetFrameTime();
-             if (switchAnimationFrameTimer >= switchAnimationFrameDuration){
-                switchAnimationFrameTimer = 0.0f;
-                switchAnimationCurrentFrame++;
-                if (switchAnimationCurrentFrame >= switchAnimationFrameCount){
-                    switchAnimationCurrentFrame = 0;
-                    status = SwitchAnimation::None;
-                }
-
-             }
-        }
         
         if(currentState == State::Startscreen){
             UpdateStartscreen(currentState);
         }else if(currentState == State::Choicescreen){
-            UpdateChoicescreen(currentState, arrowPosition, status, switchAnimationCurrentFrame, switchAnimationFrameTimer);
+            UpdateChoicescreen(currentState, arrowPosition);
         }
 
         BeginDrawing();
@@ -98,11 +67,6 @@ int main(){
             DrawChoiceScreen(visuals, arrowCurrentFrame, arrowPosition); 
         }
 
-        if(status == SwitchAnimation::LeftToRight){
-            DrawSideSwitch(visuals, switchAnimationCurrentFrame);
-        }else if(status == SwitchAnimation::RightToLeft){
-            // fehlt noch
-        }
 
 
 
