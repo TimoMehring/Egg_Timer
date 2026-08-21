@@ -13,6 +13,12 @@ enum class State{
     Timerscreen
 
 };
+
+enum class TimerOnOff{
+    Running,
+    Pausing
+};
+
 void UpdateStartscreen(State& currentState);
 void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition);
 void UpdateTimerscreen(float& elapsedTime, bool& stopwatchRunning);

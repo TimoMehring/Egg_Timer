@@ -6,6 +6,7 @@ int main(){
     const int screenWidth = 545;
     const int screenHeight = 600;
     InitWindow(screenWidth, screenHeight, "Egg Timer");
+    SetTargetFPS(60);
     
 
     State currentState = State::Startscreen;
@@ -71,6 +72,8 @@ int main(){
             DrawChoiceScreen(visuals, arrowCurrentFrame, arrowPosition); 
         }else if (currentState == State::Timerscreen){
             DrawTimerscreen(visuals, arrowPosition,elapsedTime, stopwatchRunning);
+            DrawStartStopButton(visuals);
+            DrawHomeButton(visuals,currentState);
         }
 
 

@@ -3,7 +3,7 @@
 
 void UpdateStartscreen(State& currentState)
 {
-    if (IsKeyPressed(KEY_ENTER))
+    if (IsKeyPressed(KEY_ENTER) || IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
     {
         currentState = State::Choicescreen;
     }
@@ -14,7 +14,7 @@ void DrawStartscreen(const Visuals& visuals, int eggCurrentFrame)
     ClearBackground(DARKBLUE);
 
     DrawText("EGG TIMER", 130, 150, 50, BLACK);
-    DrawText("Press Enter to start", 140, 220, 25, BLACK);
+    DrawText("Press Enter or Click to start", 90, 220, 25, BLACK);
 
     // Egg_Spritesheet_Animation
     const float frameWidth_Egg_Spritesheet = 11.0f;
