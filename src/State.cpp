@@ -80,9 +80,21 @@ void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition
 }
 
 void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition){
-    if (IsKeyPressed(KEY_LEFT)){
+    Rectangle buttonHardBoiled{
+        0.0f, 0.0f,
+        272.0f, 300.0f
+
+    };
+    Rectangle buttonSoftBoiled{
+        273.0f, 0.0f,
+        545.0f, 300.0f
+    };
+
+    Vector2 mousePosition = GetMousePosition();
+
+    if (IsKeyPressed(KEY_LEFT) || (CheckCollisionPointRec(mousePosition, buttonHardBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)))){
         arrowPosition = ArrowPosition::HardBoiled;
-    }else if (IsKeyPressed(KEY_RIGHT)){
+    }else if (IsKeyPressed(KEY_RIGHT) || (CheckCollisionPointRec(mousePosition, buttonSoftBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)))){
         arrowPosition = ArrowPosition::SoftBoiled;
     }
     if(IsKeyPressed(KEY_ENTER)){
@@ -111,7 +123,7 @@ void DrawTimerscreen(const Visuals& visuals,ArrowPosition arrowPosition, float e
     int milliseconds =  static_cast<int>((elapsedTime - static_cast<int>(elapsedTime)) * 1000);
 
     DrawText(TextFormat("%02d:%02d:%03d", minutes, seconds, milliseconds), 135, 250, 60, BLACK);
-    DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,150,30,BLACK);
+    //DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,150,30,BLACK);
     //DrawText("R: Reset", 210, 400, 30, BLACK);
     //DrawText("H: Home Button", 20, 550, 20, BLACK);
     if(arrowPosition == ArrowPosition::HardBoiled){

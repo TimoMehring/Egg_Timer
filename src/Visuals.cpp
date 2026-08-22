@@ -38,8 +38,14 @@ void DrawHomeButton(Visuals visuals, State currentState){
     DrawTextureEx(visuals.homeButton, {460.0f,530.0f},0.0f,5.0f,WHITE);
 }
 
-void DrawStartStopButton(Visuals visuals){
-    DrawTextureEx(visuals.startButton, {200.0f, 350.0f}, 0.0f, 5.0f, WHITE);
+void DrawStartStopButton(Visuals visuals,TimerOnOff& timerOnOff){
+    if(timerOnOff == TimerOnOff::Pausing){
+        DrawTextureEx(visuals.startButton, {200.0f, 350.0f}, 0.0f, 5.0f, WHITE);
+    }
+    else if(timerOnOff == TimerOnOff::Running){
+        DrawTextureEx(visuals.stopButton, {200.0f, 350.0f}, 0.0f, 5.0f, WHITE);
+    }
+    return;
 }
 
 void DrawResetButton(Visuals visuals){
@@ -62,11 +68,17 @@ void UpdateHomeButton(Visuals visuals, State& currentState){
     }
 }
 
-void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime){
+void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff){
     Rectangle ResetButton {
         200.0f, 450.0f,
         static_cast<float>(visuals.resetButton.width)*5.0f,
         static_cast<float>(visuals.resetButton.height)*5.0f
+    };
+
+    Rectangle StartStopButton {
+        200.0f, 350.0f,
+        static_cast<float>(visuals.startButton.width)*5.0f,
+        static_cast<float>(visuals.startButton.height)*5.0f
     };
 
     Vector2 mousePosition = GetMousePosition();
@@ -74,4 +86,16 @@ void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elaps
     if(CheckCollisionPointRec(mousePosition,ResetButton) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
         elapsedTime = 0.0f;
     }
+
+    if(CheckCollisionPointRec(mousePosition, StartStopButton) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        stopwatchRunning = !stopwatchRunning;
+
+        if(stopwatchRunning){
+            timerOnOff = TimerOnOff::Running;
+        }
+        else{
+            timerOnOff = TimerOnOff::Pausing;
+        }
+    }
+
 }

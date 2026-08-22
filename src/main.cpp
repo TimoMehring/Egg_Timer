@@ -14,6 +14,7 @@ int main(){
 
     Visuals visuals = LoadVisuals();
 
+    TimerOnOff timerOnOff = TimerOnOff::Pausing;
 
     int eggCurrentFrame = 0;
     const int eggFrameCount = 3;
@@ -62,7 +63,7 @@ int main(){
                 currentState = State::Startscreen;
             }
             UpdateHomeButton(visuals,currentState);
-            UpdateTimerScreenButtons(visuals, currentState, elapsedTime);
+            UpdateTimerScreenButtons(visuals, currentState, elapsedTime,stopwatchRunning, timerOnOff);
         }
 
         BeginDrawing();
@@ -74,7 +75,7 @@ int main(){
             DrawChoiceScreen(visuals, arrowCurrentFrame, arrowPosition); 
         }else if (currentState == State::Timerscreen){
             DrawTimerscreen(visuals, arrowPosition,elapsedTime, stopwatchRunning);
-            DrawStartStopButton(visuals);
+            DrawStartStopButton(visuals,timerOnOff);
             DrawResetButton(visuals);
             DrawHomeButton(visuals,currentState);
         }

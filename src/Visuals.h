@@ -14,15 +14,18 @@ struct Visuals {
     Texture2D resetButton;
 }; 
 
+
+
 enum class State;
-//enum class TimerOnOff;
+enum class TimerOnOff;
+enum class ArrowPosition;
 
 
 Visuals LoadVisuals();
 void UnloadVisuals(Visuals& visuals);
 void DrawHomeButton(Visuals visuals,State currentState);
-void DrawStartStopButton(Visuals visuals);
+void DrawStartStopButton(Visuals visuals,TimerOnOff& timerOnOff);
 void DrawResetButton(Visuals visuals);
 
 void UpdateHomeButton(Visuals visuals, State& currentState);
-void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime);
+void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff);
