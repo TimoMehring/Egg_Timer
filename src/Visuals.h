@@ -25,3 +25,4 @@ void DrawStartStopButton(Visuals visuals);
 void DrawResetButton(Visuals visuals);
 
 void UpdateHomeButton(Visuals visuals, State& currentState);
+void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime);

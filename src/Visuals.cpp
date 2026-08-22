@@ -61,3 +61,17 @@ void UpdateHomeButton(Visuals visuals, State& currentState){
         currentState = State::Startscreen;
     }
 }
+
+void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime){
+    Rectangle ResetButton {
+        200.0f, 450.0f,
+        static_cast<float>(visuals.resetButton.width)*5.0f,
+        static_cast<float>(visuals.resetButton.height)*5.0f
+    };
+
+    Vector2 mousePosition = GetMousePosition();
+
+    if(CheckCollisionPointRec(mousePosition,ResetButton) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        elapsedTime = 0.0f;
+    }
+}

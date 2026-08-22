@@ -62,6 +62,7 @@ int main(){
                 currentState = State::Startscreen;
             }
             UpdateHomeButton(visuals,currentState);
+            UpdateTimerScreenButtons(visuals, currentState, elapsedTime);
         }
 
         BeginDrawing();
