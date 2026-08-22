@@ -12,6 +12,9 @@ struct Visuals {
     Texture2D startButton;
     Texture2D stopButton;
     Texture2D resetButton;
+
+    Texture2D HardBoiledSheet;
+    Texture2D SoftBoiledSheet;
 }; 
 
 

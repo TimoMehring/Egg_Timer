@@ -15,6 +15,8 @@ Visuals LoadVisuals()
     visuals.stopButton = LoadTexture("assets/stopbutton.png");
     visuals.resetButton = LoadTexture("assets/resetbutton.png");
 
+    visuals.HardBoiledSheet = LoadTexture("assets/hardboiled_sheet.png");
+    visuals.SoftBoiledSheet = LoadTexture("assets/softboiled_sheet.png");
     return visuals;
 }
 
@@ -30,6 +32,9 @@ void UnloadVisuals(Visuals& visuals)
     UnloadTexture(visuals.startButton);
     UnloadTexture(visuals.stopButton);
     UnloadTexture(visuals.resetButton);
+
+    UnloadTexture(visuals.HardBoiledSheet);
+    UnloadTexture(visuals.SoftBoiledSheet);
 }
 
 // Draw section
