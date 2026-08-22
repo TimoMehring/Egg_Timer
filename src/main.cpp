@@ -8,6 +8,10 @@ int main(){
     const int screenHeight = 600;
     InitWindow(screenWidth, screenHeight, "Egg Timer");
     InitAudioDevice();
+
+    Image icon = LoadImage("assets/egg_icon.png");
+    SetWindowIcon(icon);
+    UnloadImage(icon);
     SetTargetFPS(60);
     
 
