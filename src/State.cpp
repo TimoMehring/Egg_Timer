@@ -95,10 +95,10 @@ void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition,Audio& 
     Vector2 mousePosition = GetMousePosition();
 
     if (IsKeyPressed(KEY_LEFT) || (CheckCollisionPointRec(mousePosition, buttonHardBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)))){
-        PlaySound(audio.button);
+        PlaySound(audio.switchArrow);
         arrowPosition = ArrowPosition::HardBoiled;
     }else if (IsKeyPressed(KEY_RIGHT) || (CheckCollisionPointRec(mousePosition, buttonSoftBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)))){
-        PlaySound(audio.button);
+        PlaySound(audio.switchArrow);
         arrowPosition = ArrowPosition::SoftBoiled;
     }
     if(IsKeyPressed(KEY_ENTER)){

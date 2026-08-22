@@ -3,6 +3,7 @@
 
 struct Audio{
     Sound button;
+    Sound switchArrow;
     Music theme;
 };
 
