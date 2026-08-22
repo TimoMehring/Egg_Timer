@@ -3,6 +3,7 @@
 
 struct Audio{
     Sound button;
+    Music theme;
 };
 
 Audio LoadAudio();

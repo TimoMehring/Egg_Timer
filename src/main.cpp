@@ -17,6 +17,8 @@ int main(){
     Visuals visuals = LoadVisuals();
     Audio audio = LoadAudio();
 
+    PlayMusicStream(audio.theme);
+
     TimerOnOff timerOnOff = TimerOnOff::Pausing;
 
     int eggCurrentFrame = 0;
@@ -35,6 +37,7 @@ int main(){
     
 
     while(!WindowShouldClose()){
+        UpdateMusicStream(audio.theme);
         eggFrameTimer += GetFrameTime();
         if(eggFrameTimer >= eggFrameDuration){
             eggFrameTimer = 0.0f;
@@ -92,6 +95,7 @@ int main(){
     }
     UnloadVisuals(visuals);
     UnloadAudio(audio);
+    CloseAudioDevice();
     CloseWindow();
     return 0;
     
