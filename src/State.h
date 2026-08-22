@@ -19,8 +19,8 @@ enum class TimerOnOff{
     Pausing
 };
 
-void UpdateStartscreen(State& currentState);
-void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition);
+void UpdateStartscreen(State& currentState,Audio& audio);
+void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition,Audio& audio);
 void UpdateTimerscreen(float& elapsedTime, bool& stopwatchRunning);
 void DrawStartscreen(const Visuals& visuals,int eggCurrentFrame);
 void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition arrowPosition);

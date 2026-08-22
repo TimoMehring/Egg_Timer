@@ -1,11 +1,13 @@
 #include "raylib.h"
 #include "State.h"
 #include "Visuals.h"
+#include "audio.h"
 
 int main(){
     const int screenWidth = 545;
     const int screenHeight = 600;
     InitWindow(screenWidth, screenHeight, "Egg Timer");
+    InitAudioDevice();
     SetTargetFPS(60);
     
 
@@ -13,6 +15,7 @@ int main(){
     ArrowPosition arrowPosition = ArrowPosition::HardBoiled;
 
     Visuals visuals = LoadVisuals();
+    Audio audio = LoadAudio();
 
     TimerOnOff timerOnOff = TimerOnOff::Pausing;
 
@@ -52,10 +55,10 @@ int main(){
         }
         
         if(currentState == State::Startscreen){
-            UpdateStartscreen(currentState);
+            UpdateStartscreen(currentState,audio);
         }else if(currentState == State::Choicescreen){
-            UpdateChoicescreen(currentState, arrowPosition);
-            UpdateClickOnEgg(visuals, currentState, arrowPosition);
+            UpdateChoicescreen(currentState, arrowPosition,audio);
+            UpdateClickOnEgg(visuals, currentState, arrowPosition,audio);
         }else if (currentState == State::Timerscreen){
             UpdateTimerscreen(elapsedTime, stopwatchRunning);
             if(IsKeyPressed(KEY_H)){
@@ -63,8 +66,8 @@ int main(){
                 stopwatchRunning = false;
                 currentState = State::Startscreen;
             }
-            UpdateHomeButton(visuals,currentState);
-            UpdateTimerScreenButtons(visuals, currentState, elapsedTime,stopwatchRunning, timerOnOff);
+            UpdateHomeButton(visuals,currentState,audio);
+            UpdateTimerScreenButtons(visuals, currentState, elapsedTime,stopwatchRunning, timerOnOff, audio);
         }
 
         BeginDrawing();
@@ -84,12 +87,11 @@ int main(){
 
 
 
-        //BeginDrawing();
-        //ClearBackground(BROWN);
         EndDrawing();
 
     }
     UnloadVisuals(visuals);
+    UnloadAudio(audio);
     CloseWindow();
     return 0;
     

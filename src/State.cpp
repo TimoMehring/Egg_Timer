@@ -1,10 +1,12 @@
 #include "State.h"
 #include "Visuals.h"
+#include "audio.h"
 
-void UpdateStartscreen(State& currentState)
+void UpdateStartscreen(State& currentState,Audio& audio)
 {
     if (IsKeyPressed(KEY_ENTER) || IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
     {
+        PlaySound(audio.button);
         currentState = State::Choicescreen;
     }
 }
@@ -79,7 +81,7 @@ void DrawChoiceScreen(const Visuals& visuals,int arrowCurrentFrame,ArrowPosition
 
 }
 
-void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition){
+void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition,Audio& audio){
     Rectangle buttonHardBoiled{
         0.0f, 0.0f,
         272.0f, 300.0f
@@ -93,11 +95,14 @@ void UpdateChoicescreen(State& currentState,ArrowPosition& arrowPosition){
     Vector2 mousePosition = GetMousePosition();
 
     if (IsKeyPressed(KEY_LEFT) || (CheckCollisionPointRec(mousePosition, buttonHardBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)))){
+        PlaySound(audio.button);
         arrowPosition = ArrowPosition::HardBoiled;
     }else if (IsKeyPressed(KEY_RIGHT) || (CheckCollisionPointRec(mousePosition, buttonSoftBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)))){
+        PlaySound(audio.button);
         arrowPosition = ArrowPosition::SoftBoiled;
     }
     if(IsKeyPressed(KEY_ENTER)){
+        PlaySound(audio.button);
         currentState = State::Timerscreen;
     }
  

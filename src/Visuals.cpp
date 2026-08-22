@@ -58,7 +58,7 @@ void DrawResetButton(Visuals visuals){
 }
 
 // Update section
-void UpdateHomeButton(Visuals visuals, State& currentState){
+void UpdateHomeButton(Visuals visuals, State& currentState,Audio& audio){
     Rectangle homeButton {
         460.0f, 530.0f, 
         static_cast<float>(visuals.startButton.width)*5.0f,
@@ -68,12 +68,13 @@ void UpdateHomeButton(Visuals visuals, State& currentState){
     Vector2 mousePosition = GetMousePosition();
 
     if(CheckCollisionPointRec(mousePosition,homeButton) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        PlaySound(audio.button);
 
         currentState = State::Startscreen;
     }
 }
 
-void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff){
+void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff, Audio& audio){
     Rectangle ResetButton {
         200.0f, 450.0f,
         static_cast<float>(visuals.resetButton.width)*5.0f,
@@ -89,10 +90,12 @@ void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elaps
     Vector2 mousePosition = GetMousePosition();
 
     if(CheckCollisionPointRec(mousePosition,ResetButton) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        PlaySound(audio.button);
         elapsedTime = 0.0f;
     }
 
     if(CheckCollisionPointRec(mousePosition, StartStopButton) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        PlaySound(audio.button);
         stopwatchRunning = !stopwatchRunning;
 
         if(stopwatchRunning){
@@ -105,7 +108,7 @@ void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elaps
 
 }
 
-void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowPosition){
+void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowPosition,Audio& audio){
     Rectangle HardBoiled{
         100.0f, 350.0f,
         static_cast<float>(visuals.egg_hard_boiled.width)*10.0f,
@@ -122,10 +125,12 @@ void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowP
     Vector2 mousePosition = GetMousePosition();
 
     if(CheckCollisionPointRec(mousePosition,HardBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        PlaySound(audio.button);
         arrowPosition = ArrowPosition::HardBoiled;
         currentState = State::Timerscreen;
     }
     if(CheckCollisionPointRec(mousePosition,SoftBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        PlaySound(audio.button);
          arrowPosition = ArrowPosition::SoftBoiled;
         currentState = State::Timerscreen;
     }

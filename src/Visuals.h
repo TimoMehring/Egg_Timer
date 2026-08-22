@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "audio.h"
 
 struct Visuals {
     Texture2D egg_spritesheet;
@@ -30,6 +31,6 @@ void DrawHomeButton(Visuals visuals,State currentState);
 void DrawStartStopButton(Visuals visuals,TimerOnOff& timerOnOff);
 void DrawResetButton(Visuals visuals);
 
-void UpdateHomeButton(Visuals visuals, State& currentState);
-void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff);
-void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowPosition);
+void UpdateHomeButton(Visuals visuals, State& currentState,Audio& audio);
+void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff,Audio& audio);
+void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowPosition,Audio& audio);
