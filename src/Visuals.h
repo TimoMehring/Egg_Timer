@@ -11,13 +11,17 @@ struct Visuals {
     Texture2D homeButton;
     Texture2D startButton;
     Texture2D stopButton;
+    Texture2D resetButton;
 }; 
 
 enum class State;
-enum class TimerOnOff;
+//enum class TimerOnOff;
 
 
 Visuals LoadVisuals();
 void UnloadVisuals(Visuals& visuals);
 void DrawHomeButton(Visuals visuals,State currentState);
 void DrawStartStopButton(Visuals visuals);
+void DrawResetButton(Visuals visuals);
+
+void UpdateHomeButton(Visuals visuals, State& currentState);

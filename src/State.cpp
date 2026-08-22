@@ -111,9 +111,9 @@ void DrawTimerscreen(const Visuals& visuals,ArrowPosition arrowPosition, float e
     int milliseconds =  static_cast<int>((elapsedTime - static_cast<int>(elapsedTime)) * 1000);
 
     DrawText(TextFormat("%02d:%02d:%03d", minutes, seconds, milliseconds), 135, 250, 60, BLACK);
-    DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,350,30,BLACK);
-    DrawText("R: Reset", 210, 400, 30, BLACK);
-    DrawText("H: Home Button", 20, 550, 20, BLACK);
+    DrawText(stopwatchRunning ? "SPACE: Pause" : "SPACE: Start",170,150,30,BLACK);
+    //DrawText("R: Reset", 210, 400, 30, BLACK);
+    //DrawText("H: Home Button", 20, 550, 20, BLACK);
     if(arrowPosition == ArrowPosition::HardBoiled){
         DrawTextureEx(visuals.egg_hard_boiled, Vector2 {20.0f, 350.0f}, 0.0, 10.0f, WHITE);
         DrawText("Hard-Boiled",35.0f, 520.0f, 20, BLACK);

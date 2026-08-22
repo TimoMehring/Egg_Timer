@@ -61,6 +61,7 @@ int main(){
                 stopwatchRunning = false;
                 currentState = State::Startscreen;
             }
+            UpdateHomeButton(visuals,currentState);
         }
 
         BeginDrawing();
@@ -73,6 +74,7 @@ int main(){
         }else if (currentState == State::Timerscreen){
             DrawTimerscreen(visuals, arrowPosition,elapsedTime, stopwatchRunning);
             DrawStartStopButton(visuals);
+            DrawResetButton(visuals);
             DrawHomeButton(visuals,currentState);
         }
 
