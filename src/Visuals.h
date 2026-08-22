@@ -29,4 +29,4 @@ void DrawResetButton(Visuals visuals);
 
 void UpdateHomeButton(Visuals visuals, State& currentState);
 void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elapsedTime,bool& stopwatchRunning,TimerOnOff& timerOnOff);
-void UpdateClickOnEgg(Visuals visuals, State& currentState);
+void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowPosition);

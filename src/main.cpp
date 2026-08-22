@@ -55,7 +55,7 @@ int main(){
             UpdateStartscreen(currentState);
         }else if(currentState == State::Choicescreen){
             UpdateChoicescreen(currentState, arrowPosition);
-            UpdateClickOnEgg(visuals, currentState);
+            UpdateClickOnEgg(visuals, currentState, arrowPosition);
         }else if (currentState == State::Timerscreen){
             UpdateTimerscreen(elapsedTime, stopwatchRunning);
             if(IsKeyPressed(KEY_H)){

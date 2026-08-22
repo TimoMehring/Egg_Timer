@@ -100,7 +100,7 @@ void UpdateTimerScreenButtons(Visuals visuals, State& currentState, float& elaps
 
 }
 
-void UpdateClickOnEgg(Visuals visuals, State& currentState){
+void UpdateClickOnEgg(Visuals visuals, State& currentState,ArrowPosition& arrowPosition){
     Rectangle HardBoiled{
         100.0f, 350.0f,
         static_cast<float>(visuals.egg_hard_boiled.width)*10.0f,
@@ -117,9 +117,11 @@ void UpdateClickOnEgg(Visuals visuals, State& currentState){
     Vector2 mousePosition = GetMousePosition();
 
     if(CheckCollisionPointRec(mousePosition,HardBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+        arrowPosition = ArrowPosition::HardBoiled;
         currentState = State::Timerscreen;
     }
     if(CheckCollisionPointRec(mousePosition,SoftBoiled) && (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))){
+         arrowPosition = ArrowPosition::SoftBoiled;
         currentState = State::Timerscreen;
     }
 
